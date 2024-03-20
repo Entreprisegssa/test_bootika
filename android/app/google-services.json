@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "472345561643",
+    "project_id": "test-bootika",
+    "storage_bucket": "test-bootika.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472345561643:android:041879cc9d4727e8b0386e",
+        "android_client_info": {
+          "package_name": "com.example.test_bootika"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD89G1dSoqv0l2Tfgiq0m8373K9f1785k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
