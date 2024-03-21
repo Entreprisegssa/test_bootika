@@ -1,5 +1,5 @@
 ## 0.0.1
 
-* This is the first version of the gssa simple registering form package.
-* This package aims to provide a fast way to build a signup form and sign data to firebase
+* User can create registering form a fast way just by indicated basic form fields informations
+* registering data are automaticaly saved to firebase database
   
