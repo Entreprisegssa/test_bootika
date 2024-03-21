@@ -1,0 +1,38 @@
+name: gssa_simple_register
+description: "gssa_register_package"
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  crypto: ^3.0.3
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^10.7.0
+  loading_animation_widget: ^1.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  fonts:
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DM_SANS/static/DMSans-Regular.ttf
+        - asset: assets/fonts/DM_SANS/static/DMSans-Bold.ttf
+          style: normal
+    - family: Josefin_Sans
+      fonts:
+        - asset: assets/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf
+        - asset: assets/fonts/Josefin_Sans/static/JosefinSans-Bold.ttf
+          style: normal
