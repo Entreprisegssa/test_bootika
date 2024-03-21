@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,7 @@ class GssaSimpleRegisteringForm extends StatefulWidget {
     this.appBarBg = primaryBackground,
     this.scaffoldBg = primaryBackground,
     required this.db, required this.collection,
-    required this.nextPage, this.auth});
+    required this.nextPage, required this.auth});
 
   final List<Map<String, dynamic>> fields;
   final Color primaryColor;
