@@ -1,3 +1,5 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* User can create registering form a fast way just by indicated basic form fields informations
+* registering data are automaticaly saved to firebase database
+  
