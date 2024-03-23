@@ -10,8 +10,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AfficherMagasinCaisse extends StatefulWidget {
-  const AfficherMagasinCaisse({super.key, required this.adminId});
+  const AfficherMagasinCaisse({super.key,
+     required this.adminId, required this.db});
   final String adminId;
+  final  FirebaseFirestore db;
   @override
   State<AfficherMagasinCaisse> createState() => _AfficherMagasinCaisseState();
 }
@@ -47,7 +49,7 @@ class _AfficherMagasinCaisseState extends State<AfficherMagasinCaisse> {
                   child: TextButton.icon(
                     onPressed: () {
                       Navigator.push(context, FromDownToUp(page:
-                          AjouterMagasinCaisse(adminId: widget.adminId)));
+                          AjouterMagasinCaisse(adminId: widget.adminId, db: widget.db,)));
                     },
                     icon: const Icon(Icons.add, color: Colors.white,),
                     label: const Text("Nouveau", style: TextStyle(color: Colors.white),),
@@ -58,7 +60,8 @@ class _AfficherMagasinCaisseState extends State<AfficherMagasinCaisse> {
             const SizedBox(height: 30.0,),
             InkWell(
               onTap: () {
-                Navigator.push(context, FromDownToUp(page: MagasinSearchPage(adminId: widget.adminId,)));
+                Navigator.push(context, FromDownToUp(page: 
+                  MagasinSearchPage(adminId: widget.adminId, db: widget.db,)));
               },
               child: const CupertinoSearchTextField(
                 enabled: false,
@@ -67,7 +70,7 @@ class _AfficherMagasinCaisseState extends State<AfficherMagasinCaisse> {
             ),
             const SizedBox(height: 30.0,),
             StreamBuilder(
-              stream: FirebaseFirestore.instance.collection('magasin')
+              stream: widget.db.collection('magasin')
                   .where('id_admin', isEqualTo: widget.adminId).snapshots(),
               builder: (BuildContext context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
                 if(snapshot.connectionState == ConnectionState.waiting) {
@@ -95,7 +98,7 @@ class _AfficherMagasinCaisseState extends State<AfficherMagasinCaisse> {
                   children: List.generate(
                     docs.length, (index) {
                       return StreamBuilder(
-                          stream: FirebaseFirestore.instance.collection('magasin')
+                          stream: widget.db.collection('magasin')
                                       .doc(docs[index].id).collection('caisses').snapshots(),
                           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> caisseDocs) {
                             if(caisseDocs.connectionState == ConnectionState.waiting) {
@@ -170,7 +173,7 @@ class _AfficherMagasinCaisseState extends State<AfficherMagasinCaisse> {
                                           isMagasinAlive: docs[index]['alive'],
                                           caissesAvailabilities: caissesAvailabilities,
                                           magasinDocId: magasinDocId,
-                                          caissesDocIds: caissesDocsIds,
+                                          caissesDocIds: caissesDocsIds, db: widget.db,
                                         )));
 
                                       },
@@ -191,7 +194,7 @@ class _AfficherMagasinCaisseState extends State<AfficherMagasinCaisse> {
                                     TextButton(
                                       onPressed: () {
                                         final bool state = !docs[index]['alive'];
-                                        FirebaseFirestore.instance.collection('magasin')
+                                        widget.db.collection('magasin')
                                             .doc(docs[index].id).update({'alive' : state});
                                       },
                                       child: Text(

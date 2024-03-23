@@ -8,8 +8,9 @@ class AjouterMagasinCaisse extends StatefulWidget {
   const AjouterMagasinCaisse({super.key, required this.adminId,
     this.magasinName = '', this.magasinAddr = '', this.caisses = const[],
     this.isMagasinAlive = true, this.caissesAvailabilities = const{},
-    this.magasinDocId = '', this.caissesDocIds = const{}});
+    this.magasinDocId = '', this.caissesDocIds = const{}, required this.db});
 
+  final FirebaseFirestore db;
   final String adminId;
   final String magasinName;
   final String magasinAddr;
@@ -41,7 +42,7 @@ class _AjouterMagasinCaisseState extends State<AjouterMagasinCaisse> {
 
     // add new `magasin` ..
     if(widget.magasinName.isEmpty) {
-      FirebaseFirestore.instance.collection('magasin')
+      widget.db.collection('magasin')
           .add(resume).then((DocumentReference doc) {
         for(String caisse in listCaisses) {
           doc.collection('caisses').add({
@@ -52,17 +53,17 @@ class _AjouterMagasinCaisseState extends State<AjouterMagasinCaisse> {
       });
       // .. or update existing one
     } else {
-     FirebaseFirestore.instance.collection('magasin')
+     widget.db.collection('magasin')
          .doc(widget.magasinDocId).update(resume).then((value) {
        for(int i = 0; i < listCaisses.length; i++) {
          if(widget.caissesDocIds.containsKey(listCaisses[i])) {
-           FirebaseFirestore.instance.collection('magasin').doc(widget.magasinDocId)
+           widget.db.collection('magasin').doc(widget.magasinDocId)
                .collection('caisses').doc(widget.caissesDocIds[listCaisses[i]]).update({
              'nom' : listCaisses[i],
              'actif' : widget.caissesAvailabilities[listCaisses[i]]
            });
          } else {
-           FirebaseFirestore.instance.collection('magasin').doc(widget.magasinDocId)
+           widget.db.collection('magasin').doc(widget.magasinDocId)
                .collection('caisses').doc().set({
              'nom' : listCaisses[i],
              'actif' : false
@@ -71,7 +72,7 @@ class _AjouterMagasinCaisseState extends State<AjouterMagasinCaisse> {
        }
        if(caisseToDelete.isNotEmpty) {
          for(String item in caisseToDelete) {
-           FirebaseFirestore.instance.collection('magasin').doc(widget.magasinDocId)
+           widget.db.collection('magasin').doc(widget.magasinDocId)
                .collection('caisses').doc(item).delete();
          }
        }

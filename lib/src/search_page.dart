@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
 import 'ajouter_magasin_caisse.dart';
 
 class MagasinSearchPage extends StatefulWidget {
-  const MagasinSearchPage({super.key, required this.adminId});
+  const MagasinSearchPage({super.key, required this.adminId, required this.db});
+  final FirebaseFirestore db;
   final String adminId;
   @override
   State<MagasinSearchPage> createState() => _MagasinSearchPageState();
@@ -157,7 +158,7 @@ class _MagasinSearchPageState extends State<MagasinSearchPage> {
                                           isMagasinAlive: docs[index]['alive'],
                                           caissesAvailabilities: caissesAvailabilities,
                                           magasinDocId: magasinDocId,
-                                          caissesDocIds: caissesDocsIds,
+                                          caissesDocIds: caissesDocsIds, db: widget.db,
                                         )));
 
                                       },
