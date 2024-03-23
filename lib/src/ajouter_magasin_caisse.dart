@@ -280,13 +280,7 @@ class _AjouterMagasinCaisseState extends State<AjouterMagasinCaisse> {
                       onPressed: () {
                         setState(() {
                           // IMPORTANT ! : l'ordre de suppression ci-dessous est important
-                          try {
-                            caisseToDelete.add(widget.caissesDocIds[listCaisses[index]]!);
-                            widget.caissesDocIds.remove(listCaisses[index]);
-                          } catch(e) {
-                            log("this `caisse` is  new");
-                          }
-                          
+                        
                           listCaisses.remove(listCaisses[index]);
 
                         });
