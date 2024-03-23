@@ -111,9 +111,9 @@ class _AjouterMagasinCaisseState extends State<AjouterMagasinCaisse> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text(
-          'Nouveau magasin',
-          style: TextStyle(
+        title: Text( widget.magasinName.isEmpty ?
+          'Nouveau magasin' : 'Modifier le magasi',
+          style: const TextStyle(
               fontSize: 20,
               color: Color(0xFF003566),
               fontWeight: FontWeight.w600
@@ -320,9 +320,13 @@ class _AjouterMagasinCaisseState extends State<AjouterMagasinCaisse> {
                     saveInfosToDataBase() .then((value) {
                       Navigator.pop(context);
                       ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
+                          SnackBar(
                             backgroundColor: Colors.green,
-                            content: Text('Magasin crée avec succès'),
+                            content: Text(
+                              widget.magasinName.isEmpty ?
+                              'Magasin crée avec succès' :
+                              'Magasin modifié avec succès'
+                              ),
                           )
                       );
                     });
