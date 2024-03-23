@@ -1,5 +1,7 @@
 
 
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -278,10 +280,13 @@ class _AjouterMagasinCaisseState extends State<AjouterMagasinCaisse> {
                       onPressed: () {
                         setState(() {
                           // IMPORTANT ! : l'ordre de suppression ci-dessous est important
-                          if(widget.caissesDocIds.containsKey(listCaisses[index])) {
+                          try {
                             caisseToDelete.add(widget.caissesDocIds[listCaisses[index]]!);
                             widget.caissesDocIds.remove(listCaisses[index]);
+                          } catch(e) {
+                            log("this `caisse` is  new");
                           }
+                          
                           listCaisses.remove(listCaisses[index]);
 
                         });
