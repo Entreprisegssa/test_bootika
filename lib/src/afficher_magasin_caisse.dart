@@ -10,8 +10,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AfficherMagasinCaisse extends StatefulWidget {
-  const AfficherMagasinCaisse({super.key, required this.adminI});
-  final String adminI;
+  const AfficherMagasinCaisse({super.key, required this.adminId});
+  final String adminId;
   @override
   State<AfficherMagasinCaisse> createState() => _AfficherMagasinCaisseState();
 }
