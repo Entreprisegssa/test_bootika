@@ -279,10 +279,8 @@ class _AjouterMagasinCaisseState extends State<AjouterMagasinCaisse> {
                     IconButton(
                       onPressed: () {
                         setState(() {
-                           if(widget.caissesDocIds.containsKey(listCaisses[index])) {
-                            caisseToDelete.add(widget.caissesDocIds[listCaisses[index]]!);
+                          caisseToDelete.add(widget.caissesDocIds[listCaisses[index]]!);
                             widget.caissesDocIds.remove(listCaisses[index]);
-                          }
                           listCaisses.remove(listCaisses[index]);
                         });
                       },
