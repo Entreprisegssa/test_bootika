@@ -74,7 +74,7 @@ class _GssaSimpleRegisteringFormState extends State<GssaSimpleRegisteringForm> {
     try {
       final credential = await widget.auth.createUserWithEmailAndPassword(
         email: RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(login) ?
-        login : '$login@bootika.com',
+        login : '$login@gmail.com',
         password: pwd,
       );
 
