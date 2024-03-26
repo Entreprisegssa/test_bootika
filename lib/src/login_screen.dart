@@ -2,9 +2,9 @@
 
 import 'dart:developer';
 
-import 'package:login_package/src//confirmation.dart';
+import 'package:login_package/src/confirmation.dart';
 import 'package:login_package/src/selection_magasin.dart';
-import 'package:login_package/src//transition_left_to_right.dart';
+import 'package:login_package/src/transition_left_to_right.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
