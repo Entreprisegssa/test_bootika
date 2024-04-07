@@ -351,7 +351,7 @@ class _LoginScreenState extends State<LoginScreen> {
           .doc(credential.user!.uid)
           .get();
 
-      pageToGo = doc.data()!.containsKey('creePar') ?
+      pageToGo = doc.data()!.containsKey('id_admin') ?
           const SelectionnerMagasin() :
           widget.nextPage;
 
