@@ -182,9 +182,9 @@ class _SelectionnerMagasinState extends State<SelectionnerMagasin> {
     DocumentSnapshot<Map<String, dynamic>> doc = await FirebaseFirestore.instance.collection('users')
         .doc(userUid)
         .get();
-    if(doc.data()!.containsKey('creePar')) {
+    if(doc.data()!.containsKey('id_admin')) {
       setState(() {
-        _userId = doc.data()!['creePar'];
+        _userId = doc.data()!['id_admin'];
       });
     } else {
       setState(() {
