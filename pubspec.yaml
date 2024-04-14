@@ -12,13 +12,16 @@ dependencies:
     sdk: flutter
 
   cloud_firestore: ^4.15.9
+
   magasin_et_caisse:
     git:
       url: git@github.com:Entreprisegssa/test_bootika.git
       ref: magasin_et_caisses
+
   font_awesome_flutter: ^10.7.0
   loading_animation_widget: ^1.2.1
   firebase_auth: ^4.17.9
+  
   gssa_simple_register:
     git:
       url: git@github.com:Entreprisegssa/test_bootika.git
