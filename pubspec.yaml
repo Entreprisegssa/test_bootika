@@ -25,7 +25,7 @@ dependencies:
   gssa_simple_register:
     git:
       url: git@github.com:Entreprisegssa/test_bootika.git
-      ref: register_form_package
+      ref: register_v0.1
 
 
 dev_dependencies:
