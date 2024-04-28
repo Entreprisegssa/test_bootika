@@ -80,7 +80,7 @@ class _GssaSimpleRegisteringFormState extends State<GssaSimpleRegisteringForm> {
       );
 
        SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-       sharedPreferences.setString("adminUid", credential.user?.uid);
+       sharedPreferences.setString("adminUid", credential.user!.uid);
 
       widget.db.collection(widget.collection).doc(credential.user?.uid).set(resume).then((value) {
         Navigator.pushReplacement(context, FromDownToUp(page: widget.nextPage));

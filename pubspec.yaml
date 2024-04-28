@@ -10,6 +10,7 @@ environment:
 dependencies:
   cloud_firestore: ^4.15.9
   firebase_auth: ^4.17.9
+  shared_preferences: ^2.2.2
 
   flutter:
     sdk: flutter
