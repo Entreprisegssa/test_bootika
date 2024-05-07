@@ -18,6 +18,10 @@ dev_dependencies:
   shared_preferences: ^2.2.2
   font_awesome_flutter: ^10.7.0
   loading_animation_widget: ^1.2.1
+  login_package:
+    git:
+      url: https://github.com/gssa-flutter-packages/bootika_login.git
+      ref: v0.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
