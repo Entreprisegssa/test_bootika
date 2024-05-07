@@ -163,7 +163,7 @@ class _GssaSimpleRegisteringFormState extends State<GssaSimpleRegisteringForm> {
                       SizedBox(width: screenWidth * 0.1,),
                       InkWell(
                         onTap: () {
-                          Navigator.push(context, FromDownToUp(page: LoginScreen()));
+                          Navigator.push(context, FromDownToUp(page: LoginScreen(nextPage: getHomeScreen(), pageToGoAfterCaisse: getHomeScreen())));
                         },
                         child: RichText(
                           text: TextSpan(
