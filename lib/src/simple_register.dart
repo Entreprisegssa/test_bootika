@@ -9,6 +9,7 @@ import 'package:gssa_simple_register/reUsable/constants_variables.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:login_package/login_package.dart';
+import 'package:bootika_officiel/pages/home_screen.dart';
 
 import '../reUsable/from_down_to_top.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,7 +22,7 @@ class GssaSimpleRegisteringForm extends StatefulWidget {
     this.appBarBg = primaryBackground,
     this.scaffoldBg = primaryBackground,
     required this.db, required this.collection,
-    required this.nextPage, required this.loginPage, required this.auth});
+    required this.nextPage, required this.auth});
 
   final List<Map<String, dynamic>> fields;
   final Color primaryColor;
@@ -32,7 +33,6 @@ class GssaSimpleRegisteringForm extends StatefulWidget {
   final String collection;
   final FirebaseAuth auth;
   final Widget nextPage;
-  final Widget loginPage;
 
   @override
   State<GssaSimpleRegisteringForm> createState() => _GssaSimpleRegisteringFormState();
@@ -163,7 +163,7 @@ class _GssaSimpleRegisteringFormState extends State<GssaSimpleRegisteringForm> {
                       SizedBox(width: screenWidth * 0.1,),
                       InkWell(
                         onTap: () {
-                          Navigator.push(context, FromDownToUp(page: widget.loginPage));
+                          Navigator.push(context, FromDownToUp(page: LoginScreen()));
                         },
                         child: RichText(
                           text: TextSpan(
