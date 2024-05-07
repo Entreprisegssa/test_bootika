@@ -21,7 +21,7 @@ class GssaSimpleRegisteringForm extends StatefulWidget {
     this.appBarBg = primaryBackground,
     this.scaffoldBg = primaryBackground,
     required this.db, required this.collection,
-    required this.nextPage, required this.auth});
+    required this.nextPage, required this.loginPage, required this.auth});
 
   final List<Map<String, dynamic>> fields;
   final Color primaryColor;
@@ -32,6 +32,7 @@ class GssaSimpleRegisteringForm extends StatefulWidget {
   final String collection;
   final FirebaseAuth auth;
   final Widget nextPage;
+  final Widget loginPage;
 
   @override
   State<GssaSimpleRegisteringForm> createState() => _GssaSimpleRegisteringFormState();
@@ -162,7 +163,7 @@ class _GssaSimpleRegisteringFormState extends State<GssaSimpleRegisteringForm> {
                       SizedBox(width: screenWidth * 0.1,),
                       InkWell(
                         onTap: () {
-                          Navigator.push(context, FromDownToUp(page: LoginScreen()));
+                          Navigator.push(context, FromDownToUp(page: widget.loginPage));
                         },
                         child: RichText(
                           text: TextSpan(
