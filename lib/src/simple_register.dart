@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:gssa_simple_register/reUsable/constants_variables.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:login_package/login_package.dart';
 
 import '../reUsable/from_down_to_top.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -160,7 +161,9 @@ class _GssaSimpleRegisteringFormState extends State<GssaSimpleRegisteringForm> {
                           icon: const Icon(FontAwesomeIcons.xmark, size: 16,)),
                       SizedBox(width: screenWidth * 0.1,),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context, FromDownToUp(page: LoginScreen()));
+                        },
                         child: RichText(
                           text: TextSpan(
                               text: 'Vous avez déjà un compte ? ',
